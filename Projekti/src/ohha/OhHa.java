@@ -14,6 +14,6 @@ public class OhHa {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      String lolol = "lolol";
+        System.out.println("trolo");
     }
 }
