@@ -5,6 +5,7 @@
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import ohha.Lauta;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,10 +17,10 @@ import static org.junit.Assert.*;
  *
  * @author Tontsu
  */
-public class muistiTest {
+public class LautaTest {
     ByteArrayOutputStream tulostus;
     Lauta pelilauta;
-    public muistiTest() {
+    public LautaTest() {
     }
 
     @BeforeClass
