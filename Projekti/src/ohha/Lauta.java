@@ -18,26 +18,30 @@ public class Lauta {
 
     private static int[][] lauta;
     private int laudanKoko;
+    private int sivu;
 
     public Lauta(int koko) {
+        sivu = koko;
         laudanKoko = koko*koko;
         lauta = luoLauta(laudanKoko / 2, koko);
     }
 
-    public boolean koordinaattitarkastaja(int X, int Y) {
+    public int koordinaattitarkastaja(int X, int Y) {
 
         try {
             int arvo;
             arvo = lauta[Y][0];
             arvo = lauta[0][X];
             System.out.println("Arvauksesi oli: " + lauta[Y][X]);
-            return true;
+            return lauta[Y][X];
 
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Virheellinen koordinaatti\nSyötä koordinaatit uudestaan\n");
-            return false;
+            return -1;
         }
     }
+    
+    
 
     public void arvauskäsittelijä(int X1, int Y1, int X2, int Y2) {
 
@@ -76,6 +80,10 @@ public class Lauta {
             }
         }
 
+    }
+    
+    public int getSivu() {
+        return sivu;
     }
     
     public int getKoko() {
