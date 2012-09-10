@@ -77,6 +77,10 @@ public class Lauta {
         }
 
     }
+    
+    public int getKoko() {
+        return laudanKoko;
+    }
 
     private int[][] luoLauta(int lukuja, int koko) {
 
