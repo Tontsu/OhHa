@@ -10,14 +10,14 @@ package ohha;
  */
 public class Nappula {
     
-    private final int y;
-    private final int x;
+    private int y;
+    private int x;
     private int arvo;
     
-    public Nappula(int j, int i, int arvo) {
+    public Nappula(int x, int y, int arvo) {
         
-        y = j;
-        x = i; 
+        y = this.y;
+        x = this.x; 
         arvo = this.arvo;
     }
 

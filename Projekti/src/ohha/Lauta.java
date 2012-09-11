@@ -23,20 +23,15 @@ public class Lauta {
     public Lauta(int koko) {
         sivu = koko;
         laudanKoko = koko*koko;
-        lauta = luoLauta(laudanKoko / 2, koko);
+        lauta = luoLauta(laudanKoko/2, koko);
     }
 
     public int koordinaattitarkastaja(int X, int Y) {
 
         try {
-            int arvo;
-            arvo = lauta[Y][0];
-            arvo = lauta[0][X];
-            System.out.println("Arvauksesi oli: " + lauta[Y][X]);
             return lauta[Y][X];
 
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Virheellinen koordinaatti\nSyötä koordinaatit uudestaan\n");
+        } catch (ArrayIndexOutOfBoundsException e) {            
             return -1;
         }
     }
@@ -89,37 +84,75 @@ public class Lauta {
     public int getKoko() {
         return laudanKoko;
     }
+    
+    public int getPituus() {
+        return lauta[0].length;
+    }
+    
+    public String laudanSisältö() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < lauta.length; i++) {
+            sb.append("\n");
+            for (int j = 0; j < lauta[0].length; j++) {
+                sb.append(lauta[i][j]);
+                 
+            }
+        }
+        return sb.toString();
+    }
+    
+    
 
     private int[][] luoLauta(int lukuja, int koko) {
 
-        int[] luvut = new int[lukuja];
-        Random random = new Random();
-        int[][] taulu = new int[koko][koko];
+        int[] lukutaulu = alusta(lukuja*2);
+        
+        sekoita(lukutaulu);
+        
+        int[][] lauta = new int[koko][koko];
+        
+        int lukuindeksi = 0;
+         for (int i = 0; i < lauta.length; i++) {
+            for (int j = 0; j < lauta[0].length; j++) {
+                lauta[i][j] = lukutaulu[lukuindeksi];
+                lukuindeksi++;
+            }
+        }    
+    return lauta;
 
-        for (int i = 0; i < luvut.length; i++) {
-            luvut[i] = 0;
-        }
-
-        for (int i = 0; i < taulu.length; i++) {
-
-            for (int j = 0; j < taulu[0].length; j++) {
-                int apu = 0;
-
-                while (true) {
-                    apu = random.nextInt(lukuja);
-                    luvut[apu]++;
-                    if (luvut[apu] <= 2) {
-                        break;
-                    }
-                }
-                taulu[i][j] = apu;
-
-
+    }
+    
+    private int[] alusta(int lukuja) {
+        
+        int[] lukutaulu = new int[lukuja];
+        int lukulaskuri = 0;
+        int apu = 0;
+        
+        for(int i = 0; i < lukutaulu.length; i++) {
+            lukutaulu[i] = apu;
+            lukulaskuri++;
+            if(lukulaskuri == 2) {
+                apu++;
+                lukulaskuri = 0;
             }
         }
+        
+        return lukutaulu;
+    }
+    
+    private int[] sekoita(int[] lukutaulu) {
+        
+        Random random = new Random();
+        
 
-        return taulu;
-
-
+        for (int i = 0; i < lukutaulu.length; i++) {
+            int satunnaisindeksi = random.nextInt(lukutaulu.length -i)+i;
+            int apu = lukutaulu[i];
+            lukutaulu[i] = lukutaulu[satunnaisindeksi];
+            lukutaulu[satunnaisindeksi] = apu;
+            
+        
+    }
+        return lukutaulu;
     }
 }
