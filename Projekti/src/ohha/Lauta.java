@@ -85,10 +85,6 @@ public class Lauta {
         return laudanKoko;
     }
     
-    public int getPituus() {
-        return lauta[0].length;
-    }
-    
     public String laudanSisältö() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < lauta.length; i++) {
