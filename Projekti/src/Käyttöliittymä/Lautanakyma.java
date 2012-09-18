@@ -34,13 +34,14 @@ public class Lautanakyma extends JFrame {
         
         Container paneeli = getContentPane();
         paneeli.setLayout(new GridLayout(laudankoko, laudankoko));
-        Siirtokontrolleri kontrolleri = new Siirtokontrolleri(pelilauta);
+        Siirtokontrolleri kontrolleri = new Siirtokontrolleri(pelilauta, this);
         
            for(int i = 0; i < pelilauta.getSivu(); i++) {
                for(int j = 0; j < pelilauta.getSivu(); j++) {
                    paneeli.add(new Nappula(j, i, pelilauta, kontrolleri));
                }
            }
+           
            
            
            

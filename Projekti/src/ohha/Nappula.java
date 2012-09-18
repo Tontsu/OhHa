@@ -18,6 +18,7 @@ public class Nappula extends JButton implements ActionListener{
     private final int x;
     private final Lauta pelilauta;
     private final Siirtokontrolleri kontrolleri;
+    private boolean kaannetty;
     
     public Nappula(int x, int y, Lauta pelilauta, Siirtokontrolleri kontrolleri) {
         //super("(" + x + ", " + y + ")"); 
@@ -26,6 +27,7 @@ public class Nappula extends JButton implements ActionListener{
         this.x = x; 
         this.pelilauta = pelilauta;
         this.addActionListener(this);
+        kaannetty = false;
      
        
     }
@@ -43,8 +45,8 @@ public class Nappula extends JButton implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-       
+    public void actionPerformed(ActionEvent e) {        
+        
         kontrolleri.setNappi(this);
         
         
@@ -53,13 +55,19 @@ public class Nappula extends JButton implements ActionListener{
     }
 
     public void piilota() {
+        kaannetty = false;
         this.setBackground(null);
         this.setText("");
     }
 
     void kaanna() {
+        kaannetty = true;
         this.setBackground(Color.white);
         this.setText("" + this.getArvo() );
+    }
+
+    boolean onKaannetty() {
+        return kaannetty;
     }
     
 }
