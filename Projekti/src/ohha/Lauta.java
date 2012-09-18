@@ -19,11 +19,16 @@ public class Lauta {
     private static int[][] lauta;
     private int laudanKoko;
     private int sivu;
+    private int lukujenmaara;
+   
+    
+
 
     public Lauta(int koko) {
         sivu = koko;
         laudanKoko = koko*koko;
-        lauta = luoLauta(laudanKoko/2, koko);
+        lukujenmaara = laudanKoko/2;
+        lauta = luoLauta(lukujenmaara, koko);
     }
 
     public int koordinaattitarkastaja(int X, int Y) {
@@ -35,6 +40,12 @@ public class Lauta {
             return -1;
         }
     }
+    
+    public int getLukuja() {
+        return lukujenmaara;
+    }
+    
+    
     
     
 

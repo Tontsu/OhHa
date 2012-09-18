@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import ohha.Lauta;
 import ohha.Nappula;
+import ohha.Siirtokontrolleri;
 /**
  *
  * @author Tontsu
@@ -33,14 +34,18 @@ public class Lautanakyma extends JFrame {
         
         Container paneeli = getContentPane();
         paneeli.setLayout(new GridLayout(laudankoko, laudankoko));
-        
+        Siirtokontrolleri kontrolleri = new Siirtokontrolleri(pelilauta);
         
            for(int i = 0; i < pelilauta.getSivu(); i++) {
                for(int j = 0; j < pelilauta.getSivu(); j++) {
-                   paneeli.add(new Nappula(j, i, pelilauta));
+                   paneeli.add(new Nappula(j, i, pelilauta, kontrolleri));
                }
            }
-            
+           
+           
+           
+           
+        
         }
     
   
