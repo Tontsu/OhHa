@@ -142,7 +142,7 @@ public class Lauta {
         
 
         for (int i = 0; i < lukutaulu.length; i++) {
-            int satunnaisindeksi = random.nextInt(lukutaulu.length -i)+i;
+            int satunnaisindeksi = random.nextInt(lukutaulu.length);
             int apu = lukutaulu[i];
             lukutaulu[i] = lukutaulu[satunnaisindeksi];
             lukutaulu[satunnaisindeksi] = apu;

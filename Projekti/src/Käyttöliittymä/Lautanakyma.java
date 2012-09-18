@@ -9,6 +9,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import ohha.Lauta;
+import ohha.Nappula;
 /**
  *
  * @author Tontsu
@@ -18,6 +19,7 @@ public class Lautanakyma extends JFrame {
     Lauta pelilauta;
     int laudankoko;
     
+    
     public Lautanakyma(int koko) {
         alustaja(koko);
         setTitle("Muistipeli");
@@ -25,15 +27,23 @@ public class Lautanakyma extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
+        
+        
        laudankoko = pelilauta.getSivu();
         
         Container paneeli = getContentPane();
         paneeli.setLayout(new GridLayout(laudankoko, laudankoko));
         
-           for(int i = 0; i < pelilauta.getKoko(); i++) {
-            paneeli.add(new JButton("i: " + i));
+        
+           for(int i = 0; i < pelilauta.getSivu(); i++) {
+               for(int j = 0; j < pelilauta.getSivu(); j++) {
+                   paneeli.add(new Nappula(j, i, pelilauta));
+               }
+           }
+            
         }
-    }
+    
+  
     
 
     

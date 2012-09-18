@@ -4,21 +4,28 @@
  */
 package ohha;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 /**
  *
  * @author Tontsu
  */
-public class Nappula {
+public class Nappula extends JButton implements ActionListener{
     
-    private int y;
-    private int x;
-    private int arvo;
+    private final int y;
+    private final int x;
+    private final Lauta pelilauta;
     
-    public Nappula(int x, int y, int arvo) {
-        
-        y = this.y;
-        x = this.x; 
-        arvo = this.arvo;
+    public Nappula(int x, int y, Lauta pelilauta) {
+        //super("(" + x + ", " + y + ")"); 
+        this.y = y;
+        this.x = x; 
+        this.pelilauta = pelilauta;
+        this.addActionListener(this);
+     
+       
     }
 
     public int getY() {
@@ -27,6 +34,17 @@ public class Nappula {
 
     public int getX() {
         return x;
+    }
+    
+    public int getArvo() {
+        return pelilauta.koordinaattitarkastaja(x, y);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        this.setBackground(Color.white);
+        this.setText("" + this.getArvo() );
+        
     }
     
 }

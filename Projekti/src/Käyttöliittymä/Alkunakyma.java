@@ -66,6 +66,8 @@ public class Alkunakyma extends JFrame {
         public void actionPerformed(ActionEvent e) {
             setVisible(false);
             Lautanakyma peli = new Lautanakyma(1);
+         
+            
             
         }
     }
@@ -82,6 +84,7 @@ public class Alkunakyma extends JFrame {
         public void actionPerformed(ActionEvent e) {
             setVisible(false);
             Lautanakyma peli = new Lautanakyma(3);
+        
             
         }
     }
