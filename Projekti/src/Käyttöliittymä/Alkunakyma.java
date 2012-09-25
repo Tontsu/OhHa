@@ -27,10 +27,7 @@ public class Alkunakyma extends JFrame {
     public Alkunakyma() {
    
         
-        setTitle("Muistipeli");
-        setSize(WIDTH, HEIGHT);
-        setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        asetaAlkuarvot();
 
 
         luoNapit();
@@ -49,6 +46,13 @@ public class Alkunakyma extends JFrame {
         lisaaElementit();
         
     }    
+    
+    private void asetaAlkuarvot() {
+        setTitle("Muistipeli");
+        setSize(WIDTH, HEIGHT);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
     
     private void luoNapit() {
         
@@ -78,9 +82,7 @@ public class Alkunakyma extends JFrame {
         public void actionPerformed(ActionEvent e) {
             setVisible(false);
             Lautanakyma peli = new Lautanakyma(1);
-         
-            
-            
+                     
         }
     }
     private class keskiNappiHandleri implements ActionListener {
@@ -96,18 +98,13 @@ public class Alkunakyma extends JFrame {
         public void actionPerformed(ActionEvent e) {
             setVisible(false);
             Lautanakyma peli = new Lautanakyma(3);
-        
-            
+                    
         }
     }
     
     public boolean getstatus() {
         return this.isVisible();
-    }
-    
-   
-    
-    
+    }    
 
 public static void main(String[] args) {
        Alkunakyma alku = new Alkunakyma();

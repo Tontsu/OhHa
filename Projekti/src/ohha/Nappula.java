@@ -90,7 +90,7 @@ public class Nappula extends JButton implements ActionListener{
      * Kääntää nappulan ympäri ja paljastaa nappulan arvon.
      */
 
-    void kaanna() {
+    public void kaanna() {
         kaannetty = true;
         this.setBackground(Color.white);
         this.setText("" + this.getArvo() );

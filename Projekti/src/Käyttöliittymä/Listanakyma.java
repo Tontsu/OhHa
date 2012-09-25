@@ -13,14 +13,14 @@ import ohha.TopLista;
  *
  * @author Tontsu
  */
-public class Lista extends JFrame {
+public class Listanakyma extends JFrame {
     
     private static final int WIDTH = 450;
     private static final int HEIGHT = 450;
-    TopLista lista = new TopLista();
+    
     private Container pane;
     
-    public Lista() {
+    public Listanakyma(TopLista lista) {
     
         setTitle("Muistipeli");
         setSize(WIDTH, HEIGHT);

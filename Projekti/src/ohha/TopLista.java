@@ -24,33 +24,6 @@ public class TopLista {
     public boolean tarkista(long aika) {
         
         lukutiedostonTarkistus();
-
-//        int rivilaskuri = 1;
-//        while (lukija.hasNextLine()) {
-//
-//            if (rivilaskuri % 2 == 1) {
-//
-//                String rivi = lukija.nextLine();
-//                
-//                try {
-//                    int numero = Integer.parseInt(rivi);
-//                    if (aika < numero) {
-//                        lukija.close();
-//                        return true;
-//                    }
-//                } catch (Exception e) {
-//                }
-//
-//            }
-//            if (rivilaskuri % 2 == 0) {
-//                lukija.nextLine();
-//            }
-//            rivilaskuri++;
-//        }
-//
-//        lukija.close();
-//        return false;
-
         
         lukutiedostonTarkistus();
         luoListat();
