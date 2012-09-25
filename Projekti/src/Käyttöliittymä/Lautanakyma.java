@@ -42,15 +42,7 @@ public class Lautanakyma extends JFrame {
                }
            }
            
-           
-           
-           
-           
-        
         }
-    
-  
-    
 
     
     private void alustaja(int koko) {

@@ -23,7 +23,10 @@ public class Lauta {
    
     
 
-
+/**
+ * Luo annetunkokoisen laudan.
+ * @param koko Laudan sivun koko.
+ */
     public Lauta(int koko) {
         sivu = koko;
         laudanKoko = koko*koko;
@@ -40,15 +43,16 @@ public class Lauta {
             return -1;
         }
     }
-    
+   
+    /**
+     * Palauttaa erilaisten lukujen lukumäärän.
+     * @return Lukujen lukumäärä.
+     */
     public int getLukuja() {
         return lukujenmaara;
     }
     
-    
-    
-    
-
+   
     public void arvauskäsittelijä(int X1, int Y1, int X2, int Y2) {
 
         if (lauta[Y1][X1] == lauta[Y2][X2] && !(Y1 == Y2 && X1 == X2)) {
@@ -58,6 +62,10 @@ public class Lauta {
 
 
     }
+    /**
+     * Tarkastaa laudan tilan.
+     * @return Palauttaa truen, jos kaikki laudan alkiot on käännetty. Muuten false.
+     */
 
     public boolean valmiustarkastaja() {
         
@@ -87,11 +95,18 @@ public class Lauta {
         }
 
     }
-    
+    /**
+     * Palauttaa laudan sivun pituuden.
+     * @return Sivun pituus.
+     */
     public int getSivu() {
         return sivu;
     }
     
+    /**
+     * Palauttaa laudan alkioiden lukumäärän.
+     * @return Alkioiden lukumäärä.
+     */
     public int getKoko() {
         return laudanKoko;
     }
@@ -102,16 +117,28 @@ public class Lauta {
             sb.append("\n");
             for (int j = 0; j < lauta[0].length; j++) {
                 sb.append(lauta[i][j]);
+                
                  
             }
         }
         return sb.toString();
     }
     
-    
+    /**
+     * Luo sekoitetun kaksiulotteisen taulukon, jossa on pari jokaista parametrina annettua lukua.
+     * 
+     * @param lukuja Taulukkoon sijoitettavien erilaisten lukujen lukumäärä.
+     * @param koko Kaksiulotteisen taulukon sivun koko.
+     * @return Sekoitettu kaksiulotteinen taulukko.
+     */
 
     private int[][] luoLauta(int lukuja, int koko) {
 
+        //String ko = "林林材材休休体体狭狭日日曰曰臼臼己己已已巳巳巴巴色色弓弓引引弔弔弗弗弟弟";
+        //String ko = "林林材材";
+        //char[] lukutaulu = ko.toCharArray();
+        
+        
         int[] lukutaulu = alusta(lukuja*2);
         
         sekoita(lukutaulu);
@@ -129,7 +156,15 @@ public class Lauta {
 
     }
     
+    /**
+     * Metodi alustaa taulukkoon annetun määrän lukupareja. 
+     * 
+     * @param lukuja lukuparien lukumäärä.
+     * @return palauttaa taulukon, jossa on pari jokaista lukua.
+     */
+    
     private int[] alusta(int lukuja) {
+        
         
         int[] lukutaulu = new int[lukuja];
         int lukulaskuri = 0;
@@ -146,6 +181,12 @@ public class Lauta {
         
         return lukutaulu;
     }
+    /**
+     * Metodi sekoittaa annetun taulukon.
+     * 
+     * @param lukutaulu Sekoitettava taulukko.
+     * @return Palauttaa sekoitetun taulukon.
+     */
     
     private int[] sekoita(int[] lukutaulu) {
         

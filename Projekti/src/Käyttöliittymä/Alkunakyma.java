@@ -21,6 +21,7 @@ public class Alkunakyma extends JFrame {
     private pieniNappiHandleri pieniHandleri;
     private keskiNappiHandleri keskiHandleri;
     private suuriNappiHandleri suuriHandleri;
+    private Container pane;
    
 
     public Alkunakyma() {
@@ -32,6 +33,25 @@ public class Alkunakyma extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
+        luoNapit();
+
+        valikkoteksti = new JLabel("Valitse koko");
+
+        pane = getContentPane();
+        
+
+        pane.setLayout(new FlowLayout(20,20,20));
+        
+        pieni.setMaximumSize(new Dimension(50,50));
+        keski.setMaximumSize(new Dimension(50,50));
+        suuri.setMaximumSize(new Dimension(50,50));
+        
+        lisaaElementit();
+        
+    }    
+    
+    private void luoNapit() {
+        
         pieni = new JButton("pieni");
         pieniHandleri = new pieniNappiHandleri();
         pieni.addActionListener(pieniHandleri);
@@ -41,25 +61,17 @@ public class Alkunakyma extends JFrame {
         suuri = new JButton("suuri");
         suuriHandleri = new suuriNappiHandleri();
         suuri.addActionListener(suuriHandleri);
-        valikkoteksti = new JLabel("Valitse koko");
-
-
-
-        Container pane = getContentPane();
         
-
-        pane.setLayout(new FlowLayout(20,20,20));
         
-        pieni.setMaximumSize(new Dimension(50,50));
-        keski.setMaximumSize(new Dimension(50,50));
-        suuri.setMaximumSize(new Dimension(50,50));
-        
+    }
+    
+   private void lisaaElementit() {
         pane.add(valikkoteksti);
         pane.add(pieni);
         pane.add(keski);
         pane.add(suuri);
         
-    }    
+    }
 
     private class pieniNappiHandleri implements ActionListener {
 

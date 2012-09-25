@@ -19,12 +19,26 @@ public class Siirtokontrolleri {
     private int kaantamattomia;
     private Lautanakyma peli;
     private long aika = 0;
+    /**
+     * Luo uuden siirtokontrollerin, joka tuntee pelilaudan ja lautanäkymän.
+     * @param pelilauta Pelilauta.
+     * @param peli Käyttöliittymän lautanäkymä.
+     */
 
     public Siirtokontrolleri(Lauta pelilauta, Lautanakyma peli) {
         kaantamattomia = pelilauta.getLukuja();
         this.peli = peli;
     }
-
+/**
+ * Päättää napille tehtävät toiminnot nappia käännettäessä.
+ * Aloittaa ajan laskemisen, mikäli ajan laskemista ei ole vielä aloitettu.
+ * Ei tee mitään jos nappi on jo käännetty.
+ * Jos arvausparin ensimmäistä arvausta ei ole tehty, nappi on arvausparin ensimmäinen arvaus.
+ * Jos arvausparin ensimmäinen arvaus on tehty, nappi on arvausparin toinen arvaus ja tapahtuu arvausarvojen vertailu.
+ * Jos aloitetaan uusi arvauspari, eikä edellisestä parista löytynyt samoja arvoja, piilotetaan molemmat arvausparin napit.
+ * 
+ * @param nappi Käsiteltävä nappula.
+ */
     public void setNappi(Nappula nappi) {
         
         aloitaAika();
@@ -49,6 +63,11 @@ public class Siirtokontrolleri {
         nappi.kaanna();
 
     }
+    
+    /**
+     * Vertaillaan kahden napin arvoja. Jos arvot ovat samat, poistetaan arvausparin nappulat käytöstä.
+     * Kirjaa oikeat arvaukset ja tekee voittotarkistuksen.
+     */
 
     private void vertailearvoja() {
         if (nappi1.getArvo() == nappi2.getArvo()) {
@@ -59,11 +78,19 @@ public class Siirtokontrolleri {
 
 
     }
+    
+    /**
+     * Poistaa nappulat käytöstä.
+     */
 
     private void nollaanapit() {
         nappi1 = null;
         nappi2 = null;
     }
+    
+    /**
+     * Tarkista laudan valmiuden. Jos lauta on valmis, lopettaa ajan laskemisen, piilottaa pelinäkymän ja avaa voittodialogin.
+     */
 
     private void tarkistaVoitto() {
         if (kaantamattomia == 0) {
@@ -74,6 +101,9 @@ public class Siirtokontrolleri {
         }
         
     }
+    /**
+     * Aloittaa ajan laskemisen, mikäli ajan laskemista ei ole vielä aloitettu.
+     */
 
     private void aloitaAika() {
         if (aika == 0) {
