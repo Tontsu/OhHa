@@ -1,3 +1,5 @@
+package ohha;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -8,6 +10,7 @@ import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ohha.Lauta;
+import Käyttöliittymä.Lautanakyma;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -22,6 +25,7 @@ import static org.junit.Assert.*;
 public class LautaTest {
     ByteArrayOutputStream tulostus;
     Lauta pelilauta;
+    Lautanakyma peli;
     public LautaTest() {
     }
 
@@ -37,6 +41,7 @@ public class LautaTest {
     @Before
     public void setUp() {
       pelilauta = new Lauta(2);
+      
       tulostus = new ByteArrayOutputStream();
       System.setOut( new PrintStream(tulostus) );
     }
@@ -75,8 +80,7 @@ public class LautaTest {
     @Test
     public void alimeneväKoordinaatti() {
          assertEquals(-1, pelilauta.koordinaattitarkastaja(-1, 1));
-    }
-    
+    }   
 
     @Test
     public void valmiinLaudanValmiustarkastus() {

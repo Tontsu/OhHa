@@ -117,8 +117,6 @@ public class Lauta {
             sb.append("\n");
             for (int j = 0; j < lauta[0].length; j++) {
                 sb.append(lauta[i][j]);
-                
-                 
             }
         }
         return sb.toString();

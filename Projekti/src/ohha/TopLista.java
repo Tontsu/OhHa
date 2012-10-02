@@ -24,8 +24,6 @@ public class TopLista {
     public boolean tarkista(long aika) {
         
         lukutiedostonTarkistus();
-        
-        lukutiedostonTarkistus();
         luoListat();
         
         if(ajat.get(9) > aika) {

@@ -19,6 +19,7 @@ public class Siirtokontrolleri {
     private int kaantamattomia;
     private Lautanakyma peli;
     private long aika = 0;
+    private Lauta pelilauta;
     /**
      * Luo uuden siirtokontrollerin, joka tuntee pelilaudan ja lautanäkymän.
      * @param pelilauta Pelilauta.
@@ -27,6 +28,7 @@ public class Siirtokontrolleri {
 
     public Siirtokontrolleri(Lauta pelilauta, Lautanakyma peli) {
         kaantamattomia = pelilauta.getLukuja();
+        this.pelilauta = pelilauta;
         this.peli = peli;
     }
 /**
@@ -95,7 +97,7 @@ public class Siirtokontrolleri {
         if (kaantamattomia == 0) {
             long suoritusaika = (System.currentTimeMillis() - aika)/1000;
             peli.setVisible(false);
-            Voittodialogi voitto = new Voittodialogi(suoritusaika);
+            Voittodialogi voitto = new Voittodialogi(suoritusaika, pelilauta.getKoko());
             
         }
         

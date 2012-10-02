@@ -29,7 +29,7 @@ public class Voittodialogi extends JFrame {
     private Container pane;
   
     
-    public Voittodialogi(long suoritusaika) {
+    public Voittodialogi(long suoritusaika, int koko) {
         
         aika = suoritusaika;
         asetaAlkuarvot();
@@ -41,7 +41,7 @@ public class Voittodialogi extends JFrame {
          
         lista.tulosta();
         
-        if (tarkistus) {
+        if (tarkistus && koko > 36 ) {
             pane.add(new JLabel("Pääsit listalle"));
             
             teksti.setEditable(true);

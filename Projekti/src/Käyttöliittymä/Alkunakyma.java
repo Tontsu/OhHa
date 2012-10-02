@@ -36,7 +36,6 @@ public class Alkunakyma extends JFrame {
 
         pane = getContentPane();
         
-
         pane.setLayout(new FlowLayout(20,20,20));
         
         pieni.setMaximumSize(new Dimension(50,50));
