@@ -63,7 +63,6 @@ public class Siirtokontrolleri {
             nappi2 = null;
         }
         nappi.kaanna();
-
     }
     
     /**
@@ -77,7 +76,6 @@ public class Siirtokontrolleri {
             kaantamattomia--;
             tarkistaVoitto();
         }
-
     }
     
     /**
@@ -99,8 +97,7 @@ public class Siirtokontrolleri {
             peli.setVisible(false);
             Voittodialogi voitto = new Voittodialogi(suoritusaika, pelilauta.getKoko());
             
-        }
-        
+        } 
     }
     /**
      * Aloittaa ajan laskemisen, mikäli ajan laskemista ei ole vielä aloitettu.

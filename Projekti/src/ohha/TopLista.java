@@ -13,35 +13,50 @@ import java.util.*;
  */
 public class TopLista {
 
-    File tiedosto = new File("top.txt");
+    String tiedostonimi;
+    File tiedosto;
     Scanner lukija = null;
     FileWriter kirjoittaja = null;
     
     ArrayList<Long> ajat = new ArrayList<Long>();
     ArrayList<String> nimet = new ArrayList<String>();
 
-
+   /**
+    * Luo uuden Top-10-listan.
+    * @param tiedostonimi Listalle annettava tiedosto, josta luetaan ja johon tallennetaan tiedot.
+    */ 
+    public TopLista(String tiedostonimi) {
+        this.tiedostonimi = tiedostonimi;
+        tiedosto = new File(tiedostonimi);
+        lukutiedostonTarkistus();
+        
+    }
+/**
+ * Tarkistaa listasta, pääseekö annettu aika listalle.
+ * @param aika Tarkistettava aika.
+ * @return Palauttaa truen, jos aika pääsee listalle, muuten false.
+ */
     public boolean tarkista(long aika) {
         
-        lukutiedostonTarkistus();
+        //lukutiedostonTarkistus();
         luoListat();
         
         if(ajat.get(9) > aika) {
             return true;
         }
-        
         else {
             return false;
         }
     }
     
-    private void lukutiedostonTarkistus() {
+    private boolean lukutiedostonTarkistus() {
          try {
             lukija = new Scanner(tiedosto);
+            return true;
         } catch (Exception e) {
-            System.out.println("Tiedostoa ei löydy");
+             System.out.println("Tiedostoa ei löydy");
+             return false;
         }
-        
     }
     
     private void luoListat() {
@@ -80,16 +95,23 @@ public class TopLista {
     private void kirjoitustiedostonLuonti() {
          try {
             kirjoittaja = new FileWriter(tiedosto);
+            
         } catch (Exception e) {
             System.out.println("Tiedostoa ei löydy");
-
+            
         }
     }
+    
+    /**
+     * Kirjaa uuden tuloksen listaan.
+     * @param nimi Uuden tuloksen nimi.
+     * @param aika Uuden tuloksen aika.
+     */
 
     public void kirjaaja(String nimi, long aika) {
 
-        lukutiedostonTarkistus();
-       
+        //lukutiedostonTarkistus();
+        
         luoListat();
         
         lisaaUusiTulos(nimi, aika);
@@ -122,13 +144,19 @@ public class TopLista {
         }
     }
 
+   /**
+    * Tulostaa listan konstruktorille annetusta tiedostosta.
+    * @return Palauttaa listan stringinä.
+    */
     public String tulosta() {
 
         ArrayList<String> ajat = new ArrayList<String>();
         ArrayList<String> nimet = new ArrayList<String>();
         String tulostus = "";
+      //KORJAAA TÄÄÄÄÄÄ  
         lukutiedostonTarkistus();
         
+            
         int rivinumero = 1;
         
         while(lukija.hasNextLine()) {

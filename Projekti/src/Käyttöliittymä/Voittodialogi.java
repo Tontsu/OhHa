@@ -17,7 +17,7 @@ public class Voittodialogi extends JFrame {
     
     private static final int WIDTH = 400;
     private static final int HEIGHT = 200;
-    TopLista lista = new TopLista();
+    TopLista lista = new TopLista("top.txt");
     boolean tarkistus = false;
     String nimi;
     private JButton ok;

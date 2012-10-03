@@ -4,6 +4,9 @@
  */
 package ohha;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileWriter;
+import java.io.PrintStream;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,6 +20,7 @@ import static org.junit.Assert.*;
  */
 public class TopListaTest {
     TopLista lista;
+    ByteArrayOutputStream tulostus;
     
     public TopListaTest() {
     }
@@ -31,7 +35,9 @@ public class TopListaTest {
     
     @Before
     public void setUp() {
-        lista = new TopLista();
+        lista = new TopLista("testi.txt");
+        tulostus = new ByteArrayOutputStream();
+        System.setOut( new PrintStream(tulostus) );
     }
     
     @After
@@ -39,8 +45,7 @@ public class TopListaTest {
     }
     
     @Test
-    public void testaaTarkistalistalleFalse() {
-        
+    public void testaaTarkistalistalleFalse() {  
          assertEquals(false, lista.tarkista(500));
     }
     
@@ -51,8 +56,7 @@ public class TopListaTest {
     
     @Test
     public void testaaTulostus() {
-       System.out.println(lista.tulosta());
-        
+       System.out.println(lista.tulosta());   
     }
     
     @Test
@@ -61,5 +65,17 @@ public class TopListaTest {
        System.out.println(lista.tulosta());
         
     }
+    @Test
+    public void testaaVirhellinenTiedosto() {
+       new TopLista("bloo.txt");
+       String odotettu = "Tiedostoa ei löydy\n";
+       assertEquals(odotettu,  poistaKenoR(tulostus.toString()));
+    }
+    
+       private String poistaKenoR(String mj) {
+        mj = mj.replace("\r", "");
+        return mj;
+    }
+    
  
 }
