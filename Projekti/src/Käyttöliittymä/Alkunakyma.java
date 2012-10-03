@@ -8,9 +8,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-/**
- *
- * @author Tontsu
+/*
+ * Pelin ensimmäinen näkymä, josta valitaan pelilaudan koko.
  */
 public class Alkunakyma extends JFrame {
 

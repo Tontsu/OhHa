@@ -9,9 +9,10 @@ import javax.swing.*;
 import java.awt.event.*;
 import ohha.TopLista;
 
-/**
- *
- * @author Tontsu
+/*
+ * Pelin kolmas näkymä, joka näytetään pelisuorituksen jälkeen.
+ * Tämä näkymä näyttää peliin kulutetun ajan ja kertoo listalle pääsystä.
+ * Tässä näkymässä annetaan myös nimi Top-listalle.
  */
 public class Voittodialogi extends JFrame {
     

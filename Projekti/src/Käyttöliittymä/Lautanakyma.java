@@ -11,9 +11,8 @@ import java.awt.event.*;
 import ohha.Lauta;
 import ohha.Nappula;
 import ohha.Siirtokontrolleri;
-/**
- *
- * @author Tontsu
+/*
+ * Pelin toinen näkymä, joka kuvaa itse pelilaudan.
  */
 public class Lautanakyma extends JFrame {
     int pikselit;  

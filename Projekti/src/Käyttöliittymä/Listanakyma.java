@@ -9,9 +9,9 @@ import javax.swing.*;
 import java.awt.event.*;
 import ohha.TopLista;
 
-/**
- *
- * @author Tontsu
+
+/*
+ * Pelin viimeinen näkymä, joka näyttää Top-listan.
  */
 public class Listanakyma extends JFrame {
     

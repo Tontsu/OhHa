@@ -73,6 +73,11 @@ public class LautaTest {
         assertEquals(4, pelilauta.getKoko());
     }
     
+        @Test
+     public void testaaLukumaara() {
+        assertEquals(2, pelilauta.getLukuja());
+    }
+    
     @Test
     public void ylimeneväKoordinaatti() {
          assertEquals(-1, pelilauta.koordinaattitarkastaja(2, 1));
@@ -98,6 +103,23 @@ public class LautaTest {
     @Test
     public void satunnaisuudentestaus() {
         Logger.getLogger("Lautatest").log(Level.WARNING, pelilauta.laudanSisältö());
+    }
+    
+    @Test
+     public void testaaIsompiKoko() {
+        pelilauta = new Lauta(4);
+        assertEquals(16, pelilauta.getKoko());
+    }
+    
+    @Test
+     public void testaaIsompiLukumaara() {
+        pelilauta = new Lauta(4);
+        assertEquals(8, pelilauta.getLukuja());
+    }
+    @Test
+     public void testaaIsompiSivu() {
+        pelilauta = new Lauta(4);
+        assertEquals(4, pelilauta.getSivu());
     }
     private String poistaKenoR(String mj) {
         mj = mj.replace("\r", "");
