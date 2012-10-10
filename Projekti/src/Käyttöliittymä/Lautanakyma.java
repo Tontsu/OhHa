@@ -11,7 +11,7 @@ import java.awt.event.*;
 import ohha.Lauta;
 import ohha.Nappula;
 import ohha.Siirtokontrolleri;
-/*
+/**
  * Pelin toinen näkymä, joka kuvaa itse pelilaudan.
  */
 public class Lautanakyma extends JFrame {
@@ -27,9 +27,7 @@ public class Lautanakyma extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
-        
-        
-       laudankoko = pelilauta.getSivu();
+        laudankoko = pelilauta.getSivu();
         
         Container paneeli = getContentPane();
         paneeli.setLayout(new GridLayout(laudankoko, laudankoko));
@@ -55,7 +53,7 @@ public class Lautanakyma extends JFrame {
         }
         if(koko == 3) {
             pikselit = 700;
-            pelilauta = new Lauta(6);
+            pelilauta = new Lauta(7);
         }
     }
     

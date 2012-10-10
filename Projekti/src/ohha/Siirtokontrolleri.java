@@ -8,7 +8,9 @@ import Käyttöliittymä.Lautanakyma;
 import Käyttöliittymä.Voittodialogi;
 
 /**
- *
+ * Luokka, joka hallinnoi siirtoja. 
+ * Pitää kirjaa nappien tiloista ja käskee nappeja kääntymään.
+ * Huolehtii ajan laskemisesta.
  * @author Tontsu
  */
 public class Siirtokontrolleri {
@@ -47,20 +49,24 @@ public class Siirtokontrolleri {
         
         if(nappi.onKaannetty()) {
             return;
-        }
+       }
         
         if (nappi1 == null) {
             nappi1 = nappi;
             
-        } else if (nappi2 == null) {
+        } 
+        else if (nappi2 == null) {
             nappi2 = nappi;
             vertailearvoja();
             
-        } else {
+        } 
+        
+        else {
             nappi1.piilota();
             nappi2.piilota();
             nappi1 = nappi;
             nappi2 = null;
+           
         }
         nappi.kaanna();
     }
@@ -72,12 +78,13 @@ public class Siirtokontrolleri {
 
     private void vertailearvoja() {
         if (nappi1.getArvo() == nappi2.getArvo()) {
+            nappi1.poista();
+            nappi2.poista();
             nollaanapit();
             kaantamattomia--;
             tarkistaVoitto();
         }
     }
-    
     /**
      * Poistaa nappulat käytöstä.
      */
@@ -96,7 +103,6 @@ public class Siirtokontrolleri {
             long suoritusaika = (System.currentTimeMillis() - aika)/1000;
             peli.setVisible(false);
             Voittodialogi voitto = new Voittodialogi(suoritusaika, pelilauta.getKoko());
-            
         } 
     }
     /**
@@ -107,5 +113,8 @@ public class Siirtokontrolleri {
         if (aika == 0) {
             aika = System.currentTimeMillis();
         }
+    }
+    public long getAika() {
+        return aika;
     }
 }

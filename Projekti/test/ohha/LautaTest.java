@@ -25,6 +25,7 @@ import static org.junit.Assert.*;
 public class LautaTest {
     ByteArrayOutputStream tulostus;
     Lauta pelilauta;
+    Lauta uuslauta;
     Lautanakyma peli;
     public LautaTest() {
     }
@@ -73,7 +74,7 @@ public class LautaTest {
         assertEquals(4, pelilauta.getKoko());
     }
     
-        @Test
+    @Test
      public void testaaLukumaara() {
         assertEquals(2, pelilauta.getLukuja());
     }
@@ -101,6 +102,13 @@ public class LautaTest {
        assertEquals(true, pelilauta.valmiustarkastaja());
     }
     @Test
+    public void luoVirheellisellaKoolla() {
+        uuslauta = new Lauta(7);
+        String odotettu = "Laudan syöte kerrottuna itsellään ei ole parillinen\n";
+        assertEquals( odotettu, poistaKenoR(tulostus.toString()));
+        
+     }
+    @Test
     public void satunnaisuudentestaus() {
         Logger.getLogger("Lautatest").log(Level.WARNING, pelilauta.laudanSisältö());
     }
@@ -121,6 +129,8 @@ public class LautaTest {
         pelilauta = new Lauta(4);
         assertEquals(4, pelilauta.getSivu());
     }
+    
+
     private String poistaKenoR(String mj) {
         mj = mj.replace("\r", "");
         return mj;

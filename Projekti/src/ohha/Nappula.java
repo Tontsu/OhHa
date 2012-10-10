@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 /**
- *
+ * Pelilaudan nappulaluokka.
  * @author Tontsu
  */
 public class Nappula extends JButton implements ActionListener{
@@ -19,6 +19,7 @@ public class Nappula extends JButton implements ActionListener{
     private final Lauta pelilauta;
     private final Siirtokontrolleri kontrolleri;
     private boolean kaannetty;
+    private boolean poistettu;
     
     /**
      * Luo uuden käännettävän pelinappulan satunnaisella arvolla.
@@ -37,8 +38,7 @@ public class Nappula extends JButton implements ActionListener{
         this.pelilauta = pelilauta;
         this.addActionListener(this);
         kaannetty = false;
-     
-       
+        poistettu = false;
     }
 
     /**
@@ -71,9 +71,7 @@ public class Nappula extends JButton implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {        
-        
-        kontrolleri.setNappi(this);
-        
+        kontrolleri.setNappi(this);   
     }
     
     /**
@@ -95,6 +93,10 @@ public class Nappula extends JButton implements ActionListener{
         this.setBackground(Color.white);
         this.setText("" + this.getArvo() );
     }
+    
+    public void poista() {
+        poistettu = true;
+    }
 
     /**
      * Palauttaa nappulan tilan.
@@ -102,6 +104,10 @@ public class Nappula extends JButton implements ActionListener{
      */
     boolean onKaannetty() {
         return kaannetty;
+    }
+    boolean onPoistettu() {
+        return poistettu;
+        
     }
     
 }

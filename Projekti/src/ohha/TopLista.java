@@ -8,6 +8,8 @@ import java.io.*;
 import java.util.*;
 
 /**
+ * Tämä luokka hallinnoi Top-10-listaa.
+ * Luokka tekee tarkistukset listalle pääsystä ja kirjaukset listalle.
  *
  * @author Tontsu
  */
@@ -38,7 +40,7 @@ public class TopLista {
  */
     public boolean tarkista(long aika) {
         
-        //lukutiedostonTarkistus();
+        lukutiedostonTarkistus();
         luoListat();
         
         if(ajat.get(9) > aika) {
@@ -110,7 +112,7 @@ public class TopLista {
 
     public void kirjaaja(String nimi, long aika) {
 
-        //lukutiedostonTarkistus();
+        lukutiedostonTarkistus();
         
         luoListat();
         

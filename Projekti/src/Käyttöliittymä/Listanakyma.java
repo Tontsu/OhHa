@@ -10,20 +10,20 @@ import java.awt.event.*;
 import ohha.TopLista;
 
 
-/*
+/**
  * Pelin viimeinen näkymä, joka näyttää Top-listan.
  */
 public class Listanakyma extends JFrame {
     
-    private static final int WIDTH = 450;
-    private static final int HEIGHT = 450;
+    private static final int leveys = 450;
+    private static final int korkeus = 450;
     
     private Container pane;
     
     public Listanakyma(TopLista lista) {
     
         setTitle("Muistipeli");
-        setSize(WIDTH, HEIGHT);
+        setSize(leveys, korkeus);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pane = getContentPane();

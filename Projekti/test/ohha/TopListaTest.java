@@ -38,6 +38,38 @@ public class TopListaTest {
         lista = new TopLista("testi.txt");
         tulostus = new ByteArrayOutputStream();
         System.setOut( new PrintStream(tulostus) );
+        
+        FileWriter kirjoittaja = null;
+         try {
+            kirjoittaja = new FileWriter("testi.txt");
+            
+        } catch (Exception e) {
+            System.out.println("Tiedostoa ei löydy");
+            
+        }
+         
+         int rivinumero = 1;
+         
+         while (rivinumero <= 20) {
+            if (rivinumero % 2 == 1) {
+                try {
+                    kirjoittaja.write("100\n");
+                } catch (Exception e) {
+                }
+            }
+            if (rivinumero % 2 == 0) {
+                try {
+                    kirjoittaja.write("testi\n");
+                } catch (Exception e) {
+                }
+            }
+            rivinumero++;
+        }
+        try {
+            kirjoittaja.close();
+        } catch (Exception e) {
+        }
+        
     }
     
     @After
@@ -62,6 +94,7 @@ public class TopListaTest {
     @Test
     public void testaaKirjaus() {
        lista.kirjaaja("testi", 1); 
+       
        System.out.println(lista.tulosta());
         
     }
@@ -77,5 +110,4 @@ public class TopListaTest {
         return mj;
     }
     
- 
 }

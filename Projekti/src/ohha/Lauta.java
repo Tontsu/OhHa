@@ -11,7 +11,8 @@ package ohha;
 import java.util.*;
 
 /**
- *
+ * Sovelluslogiikan pääluokka, joka luo pelilaudan.
+ * Tältä luokalta tehdään kyselyt pelilaudan tilasta.
  * @author Tontsu
  */
 public class Lauta {
@@ -22,7 +23,6 @@ public class Lauta {
     private int lukujenmaara;
    
     
-
 /**
  * Luo annetunkokoisen laudan.
  * @param koko Laudan sivun koko.
@@ -30,6 +30,11 @@ public class Lauta {
     public Lauta(int koko) {
         sivu = koko;
         laudanKoko = koko*koko;
+        
+        if(laudanKoko % 2 != 0) {
+            System.out.println("Laudan syöte kerrottuna itsellään ei ole parillinen");
+            return;
+        }
         lukujenmaara = laudanKoko/2;
         lauta = luoLauta(lukujenmaara, koko);
     }

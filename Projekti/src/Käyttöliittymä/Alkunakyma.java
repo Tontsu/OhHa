@@ -8,13 +8,13 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-/*
+/**
  * Pelin ensimmäinen näkymä, josta valitaan pelilaudan koko.
  */
 public class Alkunakyma extends JFrame {
 
-    private static final int WIDTH = 400;
-    private static final int HEIGHT = 100;
+    private static final int leveys = 400;
+    private static final int korkeus = 100;
     private JButton pieni, keski, suuri;
     private JLabel valikkoteksti;
     private pieniNappiHandleri pieniHandleri;
@@ -25,9 +25,7 @@ public class Alkunakyma extends JFrame {
 
     public Alkunakyma() {
    
-        
         asetaAlkuarvot();
-
 
         luoNapit();
 
@@ -47,7 +45,7 @@ public class Alkunakyma extends JFrame {
     
     private void asetaAlkuarvot() {
         setTitle("Muistipeli");
-        setSize(WIDTH, HEIGHT);
+        setSize(leveys, korkeus);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }

@@ -9,15 +9,15 @@ import javax.swing.*;
 import java.awt.event.*;
 import ohha.TopLista;
 
-/*
+/**
  * Pelin kolmas näkymä, joka näytetään pelisuorituksen jälkeen.
  * Tämä näkymä näyttää peliin kulutetun ajan ja kertoo listalle pääsystä.
- * Tässä näkymässä annetaan myös nimi Top-listalle.
+ * Tässä näkymässä annetaan nimi Top-listalle.
  */
 public class Voittodialogi extends JFrame {
     
-    private static final int WIDTH = 400;
-    private static final int HEIGHT = 200;
+    private static final int leveys = 400;
+    private static final int korkeus = 200;
     TopLista lista = new TopLista("top.txt");
     boolean tarkistus = false;
     String nimi;
@@ -35,40 +35,24 @@ public class Voittodialogi extends JFrame {
         aika = suoritusaika;
         asetaAlkuarvot();
         
-
         asetaElementit();
         
         tarkistus = lista.tarkista(suoritusaika);
          
         lista.tulosta();
         
-        if (tarkistus && koko > 36 ) {
-            pane.add(new JLabel("Pääsit listalle"));
-            
-            teksti.setEditable(true);
-            pane.add(teksti);
-            
-            ok = new JButton("Ok");
-            okhandleri = new oknappihandleri();
-            ok.addActionListener(okhandleri);
-            pane.add(ok);
-            
-            
+        if (tarkistus && koko >= 36 ) {
+            asetaListalleElementit();     
         }
         else {
-            pane.add(new JLabel("Et päässyt listalle"));
-            JButton okkee = new JButton("Ok");
-            toinenhandleri = new toinenoknappihandleri();
-            okkee.addActionListener(toinenhandleri);
-            pane.add(okkee);
-           
+            asetaEiListalleElementit();
         }
-        
+       
     }
     
     private void asetaAlkuarvot() {
         setTitle("Muistipeli");
-        setSize(WIDTH, HEIGHT);
+        setSize(leveys, korkeus);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     
@@ -82,6 +66,23 @@ public class Voittodialogi extends JFrame {
         pane.add(voitto);
         pane.add(new JLabel("Aikaa kului: " + aika + " sekuntia"));
        
+   }
+   private void asetaListalleElementit() {
+            pane.add(new JLabel("Pääsit listalle"));
+            teksti.setEditable(true);
+            pane.add(teksti);
+            ok = new JButton("Ok");
+            okhandleri = new oknappihandleri();
+            ok.addActionListener(okhandleri);
+            pane.add(ok);
+       
+   }
+   private void asetaEiListalleElementit() {
+            pane.add(new JLabel("Et päässyt listalle"));
+            JButton okkee = new JButton("Ok");
+            toinenhandleri = new toinenoknappihandleri();
+            okkee.addActionListener(toinenhandleri);
+            pane.add(okkee);
    }
    
        private class toinenoknappihandleri implements ActionListener {
