@@ -41,7 +41,7 @@ public class Voittodialogi extends JFrame {
          
         lista.tulosta();
         
-        if (tarkistus && koko >= 36 ) {
+        if (tarkistus && koko <= 36 ) {
             asetaListalleElementit();     
         }
         else {

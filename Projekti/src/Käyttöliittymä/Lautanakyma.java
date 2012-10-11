@@ -53,7 +53,7 @@ public class Lautanakyma extends JFrame {
         }
         if(koko == 3) {
             pikselit = 700;
-            pelilauta = new Lauta(7);
+            pelilauta = new Lauta(6);
         }
     }
     
