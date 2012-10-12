@@ -86,7 +86,7 @@ public class Siirtokontrolleri {
         }
     }
     /**
-     * Poistaa nappulat käytöstä.
+     * Nollaa siirtokontrollerille annettujen nappuloiden tilat.
      */
 
     private void nollaanapit() {

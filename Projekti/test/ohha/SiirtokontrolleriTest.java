@@ -19,6 +19,7 @@ import static org.junit.Assert.*;
 public class SiirtokontrolleriTest {
     Nappula testinappi;
     Nappula testinappi2;
+    Nappula testinappi3;
     Lauta pelilauta;
     Siirtokontrolleri kontrolleri;
     Lautanakyma peli;
@@ -41,6 +42,7 @@ public class SiirtokontrolleriTest {
         kontrolleri = new Siirtokontrolleri(pelilauta, peli);
         testinappi = new Nappula(1, 1, pelilauta, kontrolleri);
         testinappi2 = new Nappula(2, 2, pelilauta, kontrolleri);
+        testinappi3 = new Nappula(1, 2, pelilauta, kontrolleri);
     }
     
     @After
@@ -62,7 +64,7 @@ public class SiirtokontrolleriTest {
     public void testaaNappienPiilotus() {  
         kontrolleri.setNappi(testinappi);
         kontrolleri.setNappi(testinappi2);
-        kontrolleri.setNappi(testinappi2);
+        kontrolleri.setNappi(testinappi3);
         assertEquals(false, testinappi.onKaannetty());
     }
         @Test

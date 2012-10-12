@@ -24,7 +24,7 @@ public class Lauta {
    
     
 /**
- * Luo annetunkokoisen laudan.
+ * Luo annetunkokoisen laudan. Koon täytyy olla parillinen kerrottuna itsellään.
  * @param koko Laudan sivun koko.
  */
     public Lauta(int koko) {
